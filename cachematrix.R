@@ -45,11 +45,13 @@ cacheSolve <- function(x, ...) {
 
 	matrixinverse <- x$getInverse()
 
-        if(!is.null(matrixinverse)) {
+        ## check if inverse of the matrix exists in cache
+	if(!is.null(matrixinverse)) {
                 print("Getting cached inverse of a matrix")
                 return(matrixinverse)
         }
 
+	## if matrix inverse is not in cache, calculate the inverse
         matrix <- x$get()
 
         ## calculate the inverse of matrix
